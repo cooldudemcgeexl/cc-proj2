@@ -1,4 +1,5 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for
+from flask_login import login_user
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from ..app.database import db
@@ -27,8 +28,7 @@ def login_post():
         flash('Login failed. Check your password and try again.')
         return redirect(url_for('auth.login'))
     
-    
-
+    login_user(user, remember=remember)
     return redirect(url_for('root.profile'))
 
 
