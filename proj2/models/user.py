@@ -1,12 +1,13 @@
-from sqlalchemy import Column, String, Uuid
-from sqlalchemy.orm import declarative_base
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Column, Integer, String
 
-Base = declarative_base()
+from ..app.database import db
 
-class User(Base):
+
+class User(db.Model):
     __tablename__ = "users"
 
-    id = Column(Uuid, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     email = Column(String(100), unique=True)
     password = Column(String(100))
     first_name = Column(String(100))

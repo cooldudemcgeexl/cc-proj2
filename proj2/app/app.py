@@ -1,14 +1,16 @@
+import os
+
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 
 from ..blueprints import auth, root
 from ..models import *
+from .database import db
 
-db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__, template_folder='../templates')
-
+    
+    app.secret_key = os.urandom(24) #TODO: Change me
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 
     db.init_app(app)
