@@ -9,6 +9,7 @@ class User(UserMixin, db.Model):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
+    username = Column(String(100), unique=True)
     email = Column(String(100), unique=True)
     password = Column(String(100))
     first_name = Column(String(100))
