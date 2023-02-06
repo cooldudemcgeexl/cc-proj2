@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, redirect, render_template, url_for
 from flask_login import current_user, login_required
 
 root = Blueprint('root', __name__)
@@ -6,7 +6,7 @@ root = Blueprint('root', __name__)
 @root.route('/')
 @login_required
 def index():
-    return render_template('index.html')
+    return redirect(url_for('root.profile'))
 
 @root.route('/profile')
 @login_required
