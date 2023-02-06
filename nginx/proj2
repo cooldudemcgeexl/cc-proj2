@@ -1,0 +1,9 @@
+server {
+    listen 80;
+    server_name ec2-3-12-71-102.us-east-2.compute.amazonaws.com www.ec2-3-12-71-102.us-east-2.compute.amazonaws.com;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/home/ubuntu/proj2/proj2.sock;
+    }
+}
