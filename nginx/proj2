@@ -4,6 +4,6 @@ server {
 
     location / {
         include uwsgi_params;
-        uwsgi_pass unix:/home/ubuntu/app/proj2/proj2.sock;
+        uwsgi_pass unix:/home/ubuntu/app/cc-proj2/proj2.sock;
     }
 }
