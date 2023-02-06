@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=ubuntu
 Group=www-data
-WorkingDirectory=/home/ubuntu/cc-proj2
+WorkingDirectory=/home/ubuntu/app/cc-proj2
 Environment="PATH=/home/ubuntu/app/cc-proj2/.venv/bin"
 ExecStart=/home/ubuntu/app/cc-proj2/.venv/bin/uwsgi --ini proj2.ini
 
